@@ -27,20 +27,4 @@ def save_history(data):
     with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
  
-
- 
-# Использование Git
- 
-Инициализируйте репозиторий:git init
-git add .
-git commit -m "Initial commit"
- 
-Создайте репозиторий на GitHub/GitLab и залейте проект:git remote add origin <ваш_репозиторий>
-git push -u origin master
- 
-#Создание README.md
- 
-# Random Password Generator
- 
-**Автор:** Лилиана Рaхматуллина
  
