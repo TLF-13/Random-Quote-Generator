@@ -1,30 +1,17 @@
-#созданиe GUI-приложения «Random Password Generator» на Python
+    def validate_quote_input(self):
+        """Проверка корректности ввода новой цитаты"""
+        text = self.text_entry.get().strip()
+        author = self.author_entry.get().strip()
+        topic = self.topic_entry.get().strip()
 
- 
-import random
-import string
- 
-def generate_password(length, use_digits, use_letters, use_special):
-    chars = ''
-    if use_digits: chars += string.digits
-    if use_letters: chars += string.ascii_letters
-    if use_special: chars += string.punctuation
-    return ''.join(random.choices(chars, k=length))
- 
-# Сохранение истории в JSON
- import json
- 
-HISTORY_FILE = 'history.json'
- 
-def load_history():
-    try:
-        with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return []
- 
-def save_history(data):
-    with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
- 
- 
+        if not text:
+            messagebox.showerror("Ошибка", "Текст цитаты не может быть пустым")
+            return False
+        if not author:
+            messagebox.showerror("Ошибка", "Автор не может быть пустым")
+            return False
+        if not topic:
+            messagebox.showerror("Ошибка", "Тема не может быть пустой")
+            return False
+
+        return True, text, author, topic
